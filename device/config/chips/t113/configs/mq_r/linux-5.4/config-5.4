@@ -3137,7 +3137,16 @@ CONFIG_NVMEM_SYSFS=y
 
 # CONFIG_FPGA is not set
 # CONFIG_FSI is not set
-# CONFIG_TEE is not set
+CONFIG_TEE=y
+
+#
+# TEE drivers
+#
+CONFIG_OPTEE=y
+CONFIG_OPTEE_SHM_NUM_PRIV_PAGES=1
+# end of TEE drivers
+
+# CONFIG_SUNXI_DRM_HEAP is not set
 CONFIG_PM_OPP=y
 # CONFIG_SIOX is not set
 # CONFIG_SLIMBUS is not set
