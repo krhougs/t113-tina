@@ -3,11 +3,30 @@
 
 </p>
 
+# t113-tina
+Tina-Linux with OP-TEE/Wifi/sshd enabled for T113 based on MongoSBC's codebase.
+
+### Docker Compose build environment
+Run `docker compose b bash`
+
+Then:
+```bash
+  source build/envsetup.sh
+  lunch # select 7
+  make menuconfig
+  make kernel_menuconfig
+  make -j4
+  mboot
+  pack
+```
+
+### Change default SSID
+Edit `package/allwinner/wifimanager/files/wpa_supplicant.conf`
+
 # Tina-Linux
 Tina-Linux for F133/T113/D1-H
 
-
-### Ubuntu18.04 environment 
+### Ubuntu18.04 environment
   $ sudo apt-get install build-essential subversion git-core libncurses5-dev zlib1g-dev gawk flex quilt libssl-dev xsltproc libxml-parser-perl mercurial bzr ecj cvs unzip lib32z1 lib32z1-dev lib32stdc++6 libstdc++6 libmpc-dev libgmp-dev -y
 
 ### SDK download from GitHub
@@ -23,7 +42,7 @@ Tina-Linux for F133/T113/D1-H
   $ tar xvf dl.tar
   $ wget http://dl.mangopi.org/tina/toolchain/riscv64-linux-x86_64-20200528.tar.xz -P ./lichee/brandy-2.0/tools/toolchain/
   $ wget http://dl.mangopi.org/tina/toolchain/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz -P ./lichee/brandy-2.0/tools/toolchain/
-  
+
 ```
 
 ### Compile
@@ -43,18 +62,18 @@ Lunch menu... pick a combo:
 
 
   $ 1 or 5 or 7
-  
+
   $ make
   $ mboot
   $ pack
-  
+
   Tina-Linux/out/d1-mq_pro/tina_d1-mq_pro_uart0.img
-  
-  ``` 
-  
+
+  ```
+
 ### Flash to TF-Card
 
-just used [phoenixcard for windows](https://mangopi.org/_media/phoenixcard4.2.8.zip) 
+just used [phoenixcard for windows](https://mangopi.org/_media/phoenixcard4.2.8.zip)
 
 more info : https://mangopi.org
-  
+
