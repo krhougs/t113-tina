@@ -2291,7 +2291,7 @@ CONFIG_PACKAGE_MtpDaemon=y
 CONFIG_PACKAGE_adb=y
 # CONFIG_PACKAGE_adbd_auth_service is not set
 # CONFIG_PACKAGE_aec-xt-demo is not set
-CONFIG_PACKAGE_alsa-conf-aw=y
+# CONFIG_PACKAGE_alsa-conf-aw is not set
 # CONFIG_PACKAGE_alsa-plugins-aw is not set
 # CONFIG_PACKAGE_asan_demo is not set
 # CONFIG_PACKAGE_awrpaf_demo is not set
@@ -4811,7 +4811,7 @@ CONFIG_PACKAGE_xr819s-rftest=y
 #
 CONFIG_PACKAGE_rtk_hciattach=y
 # CONFIG_PACKAGE_ShaderYUVtoRGB is not set
-CONFIG_PACKAGE_alsa-utils=y
+# CONFIG_PACKAGE_alsa-utils is not set
 # CONFIG_PACKAGE_alsa-utils-seq is not set
 # CONFIG_PACKAGE_alsa-utils-tests is not set
 # CONFIG_PACKAGE_audit is not set

@@ -12,7 +12,7 @@ PKG_MAINTAINER:=Ted Hess <thess@kitschensync.net>
 PKG_LICENSE:=Fraunhofer-FDK-AAC-for-Android
 PKG_LICENSE_FILES:=NOTICE
 
-PKG_SOURCE_URL=https://codeload.github.com/mstorsjo/fdk-aac/tar.gz/v$(PKG_VERSION)?
+PKG_SOURCE_URL=https://github.com/mstorsjo/fdk-aac/archive/refs/tags/v0.1.6.tar.gz
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_HASH:=adbcd793e406e1b88b3c1c41382d49f8c27371485b823c0fdab69c9124fd2ce3
 
