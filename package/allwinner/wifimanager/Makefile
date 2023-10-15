@@ -81,6 +81,17 @@ define Build/Compile/$(PKG_NAME)
 		CONFIG_PREFIX="$(PKG_INSTALL_DIR)" \
 		CONFIG_IPV6="$(CONFIG_IPV6)" \
 		all
+	#wifi_daemon
+	$(MAKE) -C $(PKG_BUILD_DIR)/src/daemon/ \
+		ARCH="$(TARGET_ARCH)" \
+		AR="$(TARGET_AR)" \
+		CC="$(TARGET_CC)" \
+		CXX="$(TARGET_CXX)" \
+		CFLAGS="$(TARGET_CFLAGS)" \
+		LDFLAGS="$(TARGET_LDFLAGS)" \
+		CONFIG_PREFIX="$(PKG_INSTALL_DIR)" \
+		CONFIG_IPV6="$(CONFIG_IPV6)" \
+		all
 
 ifeq ($(CONFIG_WIFIMANAGER_ENABLE_DAEMON), y)
 	$(MAKE) -C $(PKG_BUILD_DIR)/src/daemon/ \
