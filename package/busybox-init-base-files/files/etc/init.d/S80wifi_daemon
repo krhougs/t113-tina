@@ -1,5 +1,6 @@
 echo "run dephy daemon: set up network"
-mkdir /var/run && dnsmasq &
+mkdir /var/run &
+dnsmasq &
 wifi_deamon &
 sleep 3 && wifi -p softap &
 depd &
