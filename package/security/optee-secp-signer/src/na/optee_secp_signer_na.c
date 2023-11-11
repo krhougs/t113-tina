@@ -89,7 +89,7 @@ TEEC_Result signPayload(struct tee_ctx *ctx, unsigned char msgHash[32]) {
     op.params[0].tmpref.buffer = msgHash;
     op.params[0].tmpref.size = sizeof(unsigned char[32]);
     op.params[1].tmpref.buffer = signature;
-    op.params[1].tmpref.size = sizeof(signature);
+    op.params[1].tmpref.size = sizeof(unsigned char[64]);
     res = TEEC_InvokeCommand(&ctx->sess, 2, &op, &origin); // todo add commandID define
     if (res != TEEC_SUCCESS)
         errx(1, "TEEC_InvokeCommand failed with code 0x%x origin 0x%x",

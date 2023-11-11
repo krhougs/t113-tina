@@ -9,11 +9,13 @@ int sign(unsigned char privateKey[32], unsigned char msgHash[32], unsigned char 
 	secp256k1_ecdsa_signature sig;
 	secp256k1_context *ctx = secp256k1_context_create(SECP256K1_CONTEXT_NONE);
 	// todo: use randomness to protect ctx against side channel
+    MSG("start signing");
 	retVal = secp256k1_ecdsa_sign(ctx, &sig, msgHash, privateKey, NULL, NULL);
 	if (retVal == 0)
 	{
 		return -1;
 	}
+    MSG("started serialize");
 	retVal = secp256k1_ecdsa_signature_serialize_compact(ctx, signature, &sig);
 	if (retVal == 0)
 	{
@@ -33,9 +35,10 @@ int getPublicKey(unsigned char privateKey[32], unsigned char publicKeyReceiver[3
 	{
 		return -1;
 	}
-	len = sizeof(*publicKeyReceiver);
+    MSG("secp pk");
+	len = sizeof(unsigned char [33]);
 	retVal = secp256k1_ec_pubkey_serialize(ctx, publicKeyReceiver, &len, &pubkey, SECP256K1_EC_COMPRESSED);
-	if (retVal == 0)
+    if (retVal == 0)
 	{
 		return -2;
 	}
@@ -164,9 +167,11 @@ static TEE_Result signHash(uint32_t param_types, TEE_Param params[4]) {
     }
     // Check param size
     if (params[0].memref.size < sizeof(unsigned char[32])) {
+        MSG("input buffer err");
         return TEE_ERROR_SHORT_BUFFER;
     }
-    if (params[0].memref.size < sizeof(unsigned char[64])) {
+    if (params[1].memref.size < sizeof(unsigned char[64])) {
+        MSG("output buffer err");
         return TEE_ERROR_SHORT_BUFFER;
     }
     void *msgHashIn = TEE_Malloc(sizeof(unsigned char[32]), 0);
@@ -178,6 +183,7 @@ static TEE_Result signHash(uint32_t param_types, TEE_Param params[4]) {
     void *privateKeyBuffer = TEE_Malloc(sizeof(unsigned char[32]), 0);
     retVal = loadKey(privateKeyBuffer);
     if (retVal != 0) {
+        MSG("failed to load key");
         TEE_Free(privateKeyBuffer);
         return TEE_ERROR_BAD_STATE;
     }

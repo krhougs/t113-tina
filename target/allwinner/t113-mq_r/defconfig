@@ -4623,6 +4623,7 @@ CONFIG_PACKAGE_optee-getdmkey=y
 CONFIG_PACKAGE_optee-helloworld=y
 CONFIG_PACKAGE_optee-os-dev-kit=y
 CONFIG_PACKAGE_optee-rotpk=y
+CONFIG_PACKAGE_optee-secp-signer=y
 CONFIG_PACKAGE_optee-secure-storage=y
 CONFIG_PACKAGE_optee-test-3.7=y
 
